@@ -10,17 +10,27 @@ import UIKit
 
 class HypeTableViewController: UITableViewController, UITextFieldDelegate {
 
-    
+    //creating our refresh UI instance of type UIRefreshControl
+    var refresh: UIRefreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //accessing our refresh variable created above and giving it a title
+        refresh.attributedTitle = NSAttributedString(string: "Pull to see new Hypes")
+        //calling a method called add target that is tied to loadData when the value is changed
+        refresh.addTarget(self, action: #selector(loadData), for: .valueChanged)
+        //adds the subview to the tableView
+        self.tableView.addSubview(refresh)
+        //calling our loadData function
         loadData()
+        
     }
 
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
         presentAddAlert()
-        
     }
+    
+    //our alert function that allows us to input a Hype
     func presentAddAlert() {
         let alertController = UIAlertController(title: "Get Hype", message: "What is hype may never die", preferredStyle: .alert)
         
@@ -52,11 +62,16 @@ class HypeTableViewController: UITableViewController, UITextFieldDelegate {
     
     
     //Helper function - allows us to seperate logic - everytime the fetch function is called, it will reload the tableView
-    func loadData() {
+    @objc func loadData() {
+        //accessing the fetchHype function
         HypeController.shared.fetchHype { (success) in
+            //if successful...
             if success {
                 DispatchQueue.main.async {
+                    //reload the tableView whenever we fetch a hype; on the main thread
                     self.tableView.reloadData()
+                    //end the refresh animation
+                    self.refresh.endRefreshing()
                 }
             }
         }
