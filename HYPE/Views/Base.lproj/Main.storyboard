@@ -49,7 +49,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="HYPE" id="XLx-ld-1FA">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZLN-xL-eHw"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZLN-xL-eHw">
+                            <connections>
+                                <action selector="addButtonTapped:" destination="Qu6-YH-j1f" id="61S-KM-49U"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="efY-n2-EYq" userLabel="First Responder" sceneMemberID="firstResponder"/>

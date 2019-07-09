@@ -8,28 +8,78 @@
 
 import UIKit
 
-class HypeTableViewController: UITableViewController {
+class HypeTableViewController: UITableViewController, UITextFieldDelegate {
 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadData()
+    }
 
+    @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
+        presentAddAlert()
+        
+    }
+    func presentAddAlert() {
+        let alertController = UIAlertController(title: "Get Hype", message: "What is hype may never die", preferredStyle: .alert)
+        
+        alertController.addTextField { (textField) -> Void in
+            textField.placeholder = "Hype has a limit of 45 characters."
+            textField.autocorrectionType = .yes
+            textField.autocapitalizationType = .sentences
+            textField.delegate = self
+        }
+        let addHypeAction = UIAlertAction(title: "Send", style: .default) { (_) in
+            guard let hypeText = alertController.textFields?.first?.text else {return}
+            if hypeText != "" {
+                HypeController.shared.saveHype(text: hypeText, completion: { (success) in
+                    if success {
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
+                    }
+                })
+            }
+        }
+        let cancelAction = UIAlertAction(title:"Cancel", style: .destructive)
+        
+        alertController.addAction(addHypeAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true)
+    }
+    
+    
+    
+    //Helper function - allows us to seperate logic - everytime the fetch function is called, it will reload the tableView
+    func loadData() {
+        HypeController.shared.fetchHype { (success) in
+            if success {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return HypeController.shared.hypes.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "hypeCell", for: indexPath)
 
         // Configure the cell...
+        let hype = HypeController.shared.hypes[indexPath.row]
+        cell.textLabel?.text = hype.hypeText
+        cell.detailTextLabel?.text = hype.timestamp.formatDate()
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

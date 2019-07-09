@@ -15,6 +15,7 @@
 		A4FB302122D4F9B300A21A79 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4FB302022D4F9B300A21A79 /* CloudKit.framework */; };
 		A4FB302322D4F9F800A21A79 /* Hype.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB302222D4F9F800A21A79 /* Hype.swift */; };
 		A4FB302522D5002800A21A79 /* HypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB302422D5002800A21A79 /* HypeController.swift */; };
+		A4FB302822D5137000A21A79 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB302722D5137000A21A79 /* DateFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		A4FB302022D4F9B300A21A79 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		A4FB302222D4F9F800A21A79 /* Hype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hype.swift; sourceTree = "<group>"; };
 		A4FB302422D5002800A21A79 /* HypeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypeController.swift; sourceTree = "<group>"; };
+		A4FB302722D5137000A21A79 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				A4FB301722D4F2FA00A21A79 /* Views */,
 				A4FB301922D4F32000A21A79 /* Controller */,
 				A4FB301622D4F2DF00A21A79 /* Resources */,
+				A4FB302722D5137000A21A79 /* DateFormatter.swift */,
 			);
 			path = HYPE;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				A4FB302522D5002800A21A79 /* HypeController.swift in Sources */,
 				A4FB301D22D4F7D700A21A79 /* HypeTableViewController.swift in Sources */,
 				A4FB302322D4F9F800A21A79 /* Hype.swift in Sources */,
+				A4FB302822D5137000A21A79 /* DateFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
