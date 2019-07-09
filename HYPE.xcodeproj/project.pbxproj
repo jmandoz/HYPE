@@ -12,6 +12,9 @@
 		A4FB300C22D4F25A00A21A79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4FB300B22D4F25A00A21A79 /* Assets.xcassets */; };
 		A4FB300F22D4F25A00A21A79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4FB300D22D4F25A00A21A79 /* LaunchScreen.storyboard */; };
 		A4FB301D22D4F7D700A21A79 /* HypeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB301C22D4F7D700A21A79 /* HypeTableViewController.swift */; };
+		A4FB302122D4F9B300A21A79 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4FB302022D4F9B300A21A79 /* CloudKit.framework */; };
+		A4FB302322D4F9F800A21A79 /* Hype.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB302222D4F9F800A21A79 /* Hype.swift */; };
+		A4FB302522D5002800A21A79 /* HypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB302422D5002800A21A79 /* HypeController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,10 @@
 		A4FB300E22D4F25A00A21A79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A4FB301022D4F25A00A21A79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4FB301C22D4F7D700A21A79 /* HypeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypeTableViewController.swift; sourceTree = "<group>"; };
+		A4FB301E22D4F9AF00A21A79 /* HYPE.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HYPE.entitlements; sourceTree = "<group>"; };
+		A4FB302022D4F9B300A21A79 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		A4FB302222D4F9F800A21A79 /* Hype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hype.swift; sourceTree = "<group>"; };
+		A4FB302422D5002800A21A79 /* HypeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypeController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4FB302122D4F9B300A21A79 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +48,7 @@
 			children = (
 				A4FB300322D4F25800A21A79 /* HYPE */,
 				A4FB300222D4F25800A21A79 /* Products */,
+				A4FB301F22D4F9B300A21A79 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +63,7 @@
 		A4FB300322D4F25800A21A79 /* HYPE */ = {
 			isa = PBXGroup;
 			children = (
+				A4FB301E22D4F9AF00A21A79 /* HYPE.entitlements */,
 				A4FB301822D4F31900A21A79 /* Model */,
 				A4FB301722D4F2FA00A21A79 /* Views */,
 				A4FB301922D4F32000A21A79 /* Controller */,
@@ -84,6 +94,7 @@
 		A4FB301822D4F31900A21A79 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A4FB302222D4F9F800A21A79 /* Hype.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -100,6 +111,7 @@
 		A4FB301A22D4F35500A21A79 /* Mocel Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A4FB302422D5002800A21A79 /* HypeController.swift */,
 			);
 			path = "Mocel Controller";
 			sourceTree = "<group>";
@@ -110,6 +122,14 @@
 				A4FB301C22D4F7D700A21A79 /* HypeTableViewController.swift */,
 			);
 			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		A4FB301F22D4F9B300A21A79 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A4FB302022D4F9B300A21A79 /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +164,14 @@
 				TargetAttributes = {
 					A4FB300022D4F25800A21A79 = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -184,7 +212,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4FB300522D4F25800A21A79 /* AppDelegate.swift in Sources */,
+				A4FB302522D5002800A21A79 /* HypeController.swift in Sources */,
 				A4FB301D22D4F7D700A21A79 /* HypeTableViewController.swift in Sources */,
+				A4FB302322D4F9F800A21A79 /* Hype.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +360,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HYPE/HYPE.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3ZLX8VSJT3;
 				INFOPLIST_FILE = "$(SRCROOT)/HYPE/Resources/Info.plist";
@@ -348,6 +379,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HYPE/HYPE.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3ZLX8VSJT3;
 				INFOPLIST_FILE = "$(SRCROOT)/HYPE/Resources/Info.plist";
